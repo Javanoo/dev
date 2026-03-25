@@ -2,27 +2,46 @@ package com.javanoo.dev.model;
 
 import java.util.HashSet;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Project {
 	
+	private Integer projectID;
 	private String projectName;
 	private StringBuilder projectDescription;
 	private HashSet<String> projectTools;
+	private String projectType;
 	
 	public Project() {
+		setProjectID(0);
 		setProjectName("unknown");
 		setProjectDescription(new StringBuilder("Nothing on this project."));
 		setProjectTools(new HashSet<>());
+		setProjectType("unknown");
 		
 		getProjectTools().add("nothing.");
 	}
-	
-	public Project(String name, String description, String ...tools) {
+
+	public Project(Integer ID, String name, String description, String type, String ...tools) {
+		setProjectID(ID);
 		setProjectName(name);
 		setProjectDescription(new StringBuilder(description));
 		setProjectTools(new HashSet<>());
+		setProjectType(type);
+	}
+	
+	public Integer getProjectID() {
+		return projectID;
+	}
+
+	public void setProjectID(Integer projectID) {
+		this.projectID = projectID;
+	}
+
+	public String getProjectType() {
+		return projectType;
+	}
+
+	public void setProjectType(String projectType) {
+		this.projectType = projectType;
 	}
 
 	public String getProjectName() {
