@@ -1,2 +1,3 @@
 ## Introduction
-This repo is basically for my personal website, which is progress.
+This repo is basically for my personal website, which is in progress.<br>
+be on the lookout ...
