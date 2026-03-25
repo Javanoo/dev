@@ -5,22 +5,18 @@ import java.util.LinkedHashSet;
 import org.springframework.stereotype.Service;
 
 import com.javanoo.dev.model.Project;
-import com.javanoo.dev.proxy.FetchProjectsProxy;
+import com.javanoo.dev.repository.ProjectsRepo;
 
 @Service 
 public class FetchProjectsService {
  
-	private FetchProjectsProxy fetchProjectsProxy;
+	private final ProjectsRepo projectsRepo;
 	
-	public FetchProjectsService(FetchProjectsProxy fetchProjectsProxy) {
-		this.fetchProjectsProxy = fetchProjectsProxy;
+	public FetchProjectsService(ProjectsRepo projectsRepo) {
+		this.projectsRepo = projectsRepo;
 	}
 	
-	public LinkedHashSet<Project> fetchProjects(){
-		return fetchProjectsProxy.fetch(null);
-	}
-	
-	public LinkedHashSet<Project> fetchProjectsFilteredBy(String filter){
-		return fetchProjectsProxy.fetch(filter);
+	public LinkedHashSet<Project> fetchProjects(String filterType, String filter){
+		return projectsRepo.getProjects(filterType, filter);
 	}
 }

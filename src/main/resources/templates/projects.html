@@ -17,13 +17,17 @@
 			</ul>
 		</nav>
 		
-		<section id="projects">
-			<h3>project name</h3>
-		</section>
-		
-		<section id="skills">
-			<small>Skilled in </small>
-			
+		<section id="projectsContainer">
+			<section id="projects" th:each="p: ${projects}">
+				<h3 th:text="${p.projectName}"></h3>
+				<small th:text="${p.projectType}"></small>
+				<p th:text="${p.projectDescription}"></p>
+				<ul>
+					<li th:each="t: ${p.projectTools}">
+						<small th:text="${t}"></small>
+					</li>
+				</ul>
+			</section>	
 		</section>
 		<footer><small> 2026 &copy; copyright <a href="https://github.com/javanoo"> javanoo </a></small></footer>
 	</body>
