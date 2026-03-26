@@ -24,7 +24,7 @@
 				<p th:text="${p.projectDescription}"></p>
 				<ul>
 					<li th:each="t: ${p.projectTools}">
-						<small th:text="${t}"></small>
+						<small th:text="${t.toString()}"></small>
 					</li>
 				</ul>
 			</section>	
