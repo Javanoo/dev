@@ -19,7 +19,7 @@ public class Project {
 		
 		getProjectTools().add("nothing.");
 	}
-
+	
 	public Project(Integer ID, String name, String description, String type, String ...tools) {
 		setProjectID(ID);
 		setProjectName(name);
