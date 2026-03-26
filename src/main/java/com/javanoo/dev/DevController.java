@@ -5,6 +5,7 @@ import java.util.LinkedHashSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javanoo.dev.model.Project;
@@ -46,4 +47,13 @@ public class DevController {
 		return "collaborate.html";
 	}
 	
+	@PostMapping("/collaborate")
+	public String collaborate(
+			@RequestParam(required = false) String emailAddress, 
+			@RequestParam(required = false) String emailSubject,
+			@RequestParam(required = false) String emailMessage) {
+		//do store the email...
+		//then call collaborate
+		return collaborate();
+	}
 }
