@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.thymeleaf.org">
+	<head>
+		<title> javanoo </title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<header>
+			<h1>javanoo</h1>
+			<p><small>matthews offen</small></p>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="/">home</a></l>
+				<li><a href="/projects">projects</a></li>
+				<li><a href="collaborate">collaborate</a></li>
+			</ul>
+		</nav>
+		
+		<section id="quickContacts">
+			<p> Please feel free to reach me through the links below or send me an email in the bottom secction.</P>
+			<ul>
+				<li><a href="https://github.com/javanoo">github</a></li>
+				<li><a href="https://linkedin.com/matthews-offen">linked in</a></li>
+				<li><a href="https://github.com/javanoo">behance</a></li>
+			</ul>
+		</section>
+		
+		<section id="emailMe">
+			<h3>Send me an email</h3>
+			<form method="POST" action="/collaborate">
+				<input type="email" for="email" placeholder="our email address"></input><hr>
+				<input type="text" for="subject" placeholder="subject"></input><hr>
+				<textarea for="message" placeholder="message"> </textarea><br>
+				<button type="submit">send </button>
+			</form>
+		</section>
+		<footer><small> 2026 &copy; copyright <a href="https://github.com/javanoo"> javanoo </a></small></footer>
+	</body>
+</html>
