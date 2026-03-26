@@ -19,7 +19,7 @@ public class ProjectsRepo {
 	protected LinkedHashSet<Project> fetch(String filterType, String filter){
 		
 		LinkedHashSet<Project> projects = new LinkedHashSet<>();
-		for(int i = 4; i > 0; i--){
+		for(int i = 0; i < 4; i++){
 			projects.add(new Project(i, "dummyProject"+i,
 										"This is a dummy project, for testing.",
 										"backend", 
