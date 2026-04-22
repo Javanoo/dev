@@ -10,14 +10,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javanoo.dev.model.Project;
 import com.javanoo.dev.service.FetchProjectsService;
+import com.javanoo.dev.service.MailingService;
 
 @Controller
 public class DevController {
 	
 	private final FetchProjectsService fetchProjectsService;
+	private final MailingService mailingService;
 	
-	public DevController(FetchProjectsService fetchProjectsService) {
+	public DevController(FetchProjectsService fetchProjectsService, 
+						MailingService mailingService) {
 		this.fetchProjectsService = fetchProjectsService;
+		this.mailingService = mailingService;
 	}
 
 	@GetMapping("/")
