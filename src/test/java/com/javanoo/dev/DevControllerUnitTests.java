@@ -44,10 +44,10 @@ public class DevControllerUnitTests {
 		LinkedHashSet<Project> listOfProjects = new LinkedHashSet<>();
 		
 		//assumptions
-		given(fetchProjectsService.fetchProjects("filterType", "filter")).willReturn(listOfProjects);
+		given(fetchProjectsService.fetchProjects( "filter")).willReturn(listOfProjects);
 		
 		//call
-		String result = devController.projects("filterType","filter",model);
+		String result = devController.projects("filter",model);
 		
 		//validate
 		verify(model).addAttribute("projects", listOfProjects);
