@@ -2,16 +2,19 @@ package com.javanoo.dev.model;
 
 import java.util.HashSet;
 
+import org.springframework.data.annotation.Id;
+
 public class Project {
 	
-	private Integer projectID;
+	@Id
+	private Integer projectId;
 	private String projectName;
 	private StringBuilder projectDescription;
 	private HashSet<String> projectTools;
 	private String projectType;
 	
 	public Project() {
-		setProjectID(0);
+		setProjectId(0);
 		setProjectName("unknown");
 		setProjectDescription(new StringBuilder("Nothing on this project."));
 		setProjectTools(new HashSet<>());
@@ -20,20 +23,20 @@ public class Project {
 		getProjectTools().add("nothing.");
 	}
 	
-	public Project(Integer ID, String name, String description, String type, String ...tools) {
-		setProjectID(ID);
+	public Project(Integer Id, String name, String description, String type, String ...tools) {
+		setProjectId(Id);
 		setProjectName(name);
 		setProjectDescription(new StringBuilder(description));
 		setProjectTools(new HashSet<>());
 		setProjectType(type);
 	}
 	
-	public Integer getProjectID() {
-		return projectID;
+	public Integer getProjectId() {
+		return projectId;
 	}
 
-	public void setProjectID(Integer projectID) {
-		this.projectID = projectID;
+	public void setProjectId(Integer projectId) {
+		this.projectId = projectId;
 	}
 
 	public String getProjectType() {
