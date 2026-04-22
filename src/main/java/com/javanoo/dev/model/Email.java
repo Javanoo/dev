@@ -1,20 +1,19 @@
 package com.javanoo.dev.model;
 
+import org.springframework.data.annotation.Id;
+
 public class Email {
+
+	@Id
+	private Integer emailId;
 	private String emailAddress;
 	private String emailSubject;
-	private StringBuilder emailMessage;
+	private String emailMessage;
 	
 	public Email() {
 		setEmailAddress("unknown");
 		setEmailSubject("unknown");
-		setEmailMessage(new StringBuilder("nothing"));
-	}
-	
-	public Email(String emailAddress, String subject, String message) {
-		setEmailAddress(emailAddress);
-		setEmailSubject(subject);
-		setEmailMessage(new StringBuilder(message));
+		setEmailMessage("nothing");
 	}
 
 	public String getEmailAddress() {
@@ -33,11 +32,11 @@ public class Email {
 		this.emailSubject = emailSubject;
 	}
 
-	public StringBuilder getEmailMessage() {
+	public String getEmailMessage() {
 		return emailMessage;
 	}
 
-	public void setEmailMessage(StringBuilder emailMessage) {
+	public void setEmailMessage(String emailMessage) {
 		this.emailMessage = emailMessage;
 	}
 	
