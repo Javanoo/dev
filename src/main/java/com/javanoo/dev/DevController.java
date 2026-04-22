@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.javanoo.dev.model.Email;
 import com.javanoo.dev.model.Project;
 import com.javanoo.dev.service.FetchProjectsService;
 import com.javanoo.dev.service.MailingService;
@@ -31,15 +32,14 @@ public class DevController {
 	
 	@GetMapping("/projects")
 	public String projects(
-			@RequestParam(required = false) String filterType,
 			@RequestParam(required = false) String filter,
 			Model page) {
 		LinkedHashSet<Project> projects;
 		
-		if((filterType != null && !filterType.isBlank()) && (filter != null && !filter.isBlank())) {
-			projects = fetchProjectsService.fetchProjects(filterType, filter); 
+		if((filter != null && !filter.isBlank())) {
+			projects = fetchProjectsService.fetchProjects(filter); 
 		}else {
-			projects = fetchProjectsService.fetchProjects("projectID", "true");
+			projects = fetchProjectsService.fetchProjects("true");
 		}
 		
 		page.addAttribute("projects", projects);
@@ -56,7 +56,15 @@ public class DevController {
 			@RequestParam(required = false) String emailAddress, 
 			@RequestParam(required = false) String emailSubject,
 			@RequestParam(required = false) String emailMessage) {
-		//do store the email...
+		//only store valid email
+		if(emailAddress != null && emailSubject != null && emailMessage !=null)
+		 if(!(emailAddress.isBlank() || emailSubject.isBlank() || emailMessage.isBlank())){
+		 	 Email email = new Email();
+			 email.setEmailAddress(emailAddress);
+			 email.setEmailSubject(emailSubject);
+			 email.setEmailMessage(emailMessage);
+			 mailingService.storeEmail(email);
+		 }
 		//then call collaborate
 		return collaborate();
 	}
