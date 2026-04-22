@@ -46,16 +46,16 @@ CREATE TABLE IF NOT EXISTS projectTools (
 
 
 --
--- Table structure for `collaborators`
+-- Table structure for `emails`
 --
 
-CREATE TABLE IF NOT EXISTS collaborators (
- collaboratorId SMALLINT  UNSIGNED NOT NULL AUTO_INCREMENT,
- collaboratorEmail VARCHAR(100) NOT NULL,
- collaboratorEmailSubject VARCHAR(100) NOT NULL,
- collaboratorMessage TEXT NOT NULL,
- CONSTRAINT collaborators_pk PRIMARY KEY (collaboratorId),
- UNIQUE uidx_collaboratorEmail (collaboratorEmail),
+CREATE TABLE IF NOT EXISTS emails(
+ emailId SMALLINT  UNSIGNED NOT NULL AUTO_INCREMENT,
+ emailAddress VARCHAR(100) NOT NULL,
+ emailSubject VARCHAR(100) NOT NULL,
+ emailMessage TEXT NOT NULL,
+ CONSTRAINT emails_pk PRIMARY KEY (emailId),
+ KEY idx_emailAddress (emailAddress),
  dateCreatedOn DATETIME DEFAULT CURRENT_TIMESTAMP,
  lastUpdatedOn DATETIME DEFAULT CURRENT_TIMESTAMP
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
