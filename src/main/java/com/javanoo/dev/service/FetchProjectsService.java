@@ -16,7 +16,7 @@ public class FetchProjectsService {
 		this.projectsRepo = projectsRepo;
 	}
 	
-	public LinkedHashSet<Project> fetchProjects(String filterType, String filter){
-		return projectsRepo.getProjects(filterType, filter);
+	public LinkedHashSet<Project> fetchProjects(String filter){
+		return projectsRepo.fetchProjects(filter);
 	}
 }
