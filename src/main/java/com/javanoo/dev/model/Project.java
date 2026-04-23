@@ -1,34 +1,42 @@
 package com.javanoo.dev.model;
 
-import java.util.HashSet;
-
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("projects")
 public class Project {
 	
 	@Id
+	@Column("projectId")
 	private Integer projectId;
+
+	@Column("projectName")
 	private String projectName;
-	private StringBuilder projectDescription;
-	private HashSet<String> projectTools;
+
+	@Column("projectDescription")
+	private String projectDescription;
+
+	@Column("projectType")
 	private String projectType;
+
+	@Column("projectGithubLink")
+	private String projectGithubLink;
 	
+	public String getProjectGithubLink() {
+		return projectGithubLink;
+	}
+
+	public void setProjectGithubLink(String projectGithubLink) {
+		this.projectGithubLink = projectGithubLink;
+	}
+
 	public Project() {
 		setProjectId(0);
 		setProjectName("unknown");
-		setProjectDescription(new StringBuilder("Nothing on this project."));
-		setProjectTools(new HashSet<>());
+		setProjectDescription("Nothing about this project.");
+		setProjectGithubLink("unknown");
 		setProjectType("unknown");
-		
-		getProjectTools().add("nothing.");
-	}
-	
-	public Project(Integer Id, String name, String description, String type, String ...tools) {
-		setProjectId(Id);
-		setProjectName(name);
-		setProjectDescription(new StringBuilder(description));
-		setProjectTools(new HashSet<>());
-		setProjectType(type);
 	}
 	
 	public Integer getProjectId() {
@@ -55,20 +63,12 @@ public class Project {
 		this.projectName = projectName;
 	}
 
-	public StringBuilder getProjectDescription() {
+	public String getProjectDescription() {
 		return projectDescription;
 	}
 
-	public void setProjectDescription(StringBuilder projectDescription) {
+	public void setProjectDescription(String projectDescription) {
 		this.projectDescription = projectDescription;
-	}
-
-	public HashSet<String> getProjectTools() {
-		return projectTools;
-	}
-
-	public void setProjectTools(HashSet<String> projectTools) {
-		this.projectTools = projectTools;
 	}
 	
 }
