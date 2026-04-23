@@ -37,9 +37,9 @@ public class DevController {
 		LinkedHashSet<Project> projects;
 		
 		if((filter != null && !filter.isBlank())) {
-			projects = fetchProjectsService.fetchProjects(filter); 
+			projects = fetchProjectsService.fetchProjects(filter);
 		}else {
-			projects = fetchProjectsService.fetchProjects("true");
+			projects = fetchProjectsService.fetchAllProjects();
 		}
 		
 		page.addAttribute("projects", projects);
