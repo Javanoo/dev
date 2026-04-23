@@ -22,11 +22,7 @@
 				<h3 th:text="${p.projectName}"></h3>
 				<small th:text="${p.projectType}"></small>
 				<p th:text="${p.projectDescription}"></p>
-				<ul>
-					<li th:each="t: ${p.projectTools}">
-						<small th:text="${t.toString()}"></small>
-					</li>
-				</ul>
+				<a href="/" th:text="${p.projectGithubLink}"></a>
 			</section>	
 		</section>
 		<footer><small> 2026 &copy; copyright <a href="https://github.com/javanoo"> javanoo </a></small></footer>
