@@ -19,4 +19,12 @@ public class FetchProjectsService {
 	public LinkedHashSet<Project> fetchProjects(String filter){
 		return projectsRepo.fetchProjects(filter);
 	}
+
+	public LinkedHashSet<Project> fetchAllProjects(){
+		LinkedHashSet<Project> listOfProjects = new LinkedHashSet<>();
+		for (Project e : projectsRepo.findAll()){
+			listOfProjects.add(e);
+		}
+		return listOfProjects;
+	}
 }
