@@ -11,6 +11,12 @@ import com.javanoo.dev.model.Project;
 @Repository
 public interface ProjectsRepo extends CrudRepository<Project,Integer> {
 
-	@Query("SELECT projectId, projectName, projectDescription, projectType, projectGithubLink FROM projects WHERE projectType = :projectType")
+	@Query("SELECT projectId, projectName, projectDescription, projectType, projectGithubLink FROM projects WHERE projectType = :projectType;")
 	LinkedHashSet<Project> fetchProjects(String projectType);
+
+	
+	@Override
+	@Query("SELECT projectId, projectName, projectDescription, projectType, projectGithubLink FROM projects;")
+	public Iterable<Project> findAll();
+	
 }
