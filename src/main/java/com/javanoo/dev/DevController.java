@@ -5,10 +5,8 @@ import java.util.LinkedHashSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.javanoo.dev.model.Email;
 import com.javanoo.dev.model.Project;
 import com.javanoo.dev.service.FetchProjectsService;
 import com.javanoo.dev.service.MailingService;
@@ -18,6 +16,7 @@ public class DevController {
 	
 	private final FetchProjectsService fetchProjectsService;
 	private final MailingService mailingService;
+	private String pageMode;
 	
 	public DevController(FetchProjectsService fetchProjectsService, 
 						MailingService mailingService) {
@@ -26,8 +25,12 @@ public class DevController {
 	}
 
 	@GetMapping("/")
-	public String home() {
-		return "home.html";
+	public String home(Model page) {
+		pageMode = "home";
+		page.addAttribute("pageMode", pageMode);
+		page.addAttribute("aboutLink", "active");
+		page.addAttribute("projectLink", "inactive");
+		return "index.html";
 	}
 	
 	@GetMapping("/projects")
@@ -42,15 +45,16 @@ public class DevController {
 			projects = fetchProjectsService.fetchAllProjects();
 		}
 		
+		pageMode = "projects";
+		page.addAttribute("pageMode", pageMode);
+		page.addAttribute("projectLink", "active");
+		page.addAttribute("aboutLink", "inactive");
 		page.addAttribute("projects", projects);
-		return "projects.html";
+		return "index.html";
 	}
 	
-	@GetMapping("/collaborate")
-	public String collaborate() {
-		return "collaborate.html";
-	}
-	
+
+	/* 
 	@PostMapping("/collaborate")
 	public String collaborate(
 			@RequestParam(required = false) String emailAddress, 
@@ -67,5 +71,5 @@ public class DevController {
 		 }
 		//then call collaborate
 		return collaborate();
-	}
+	}*/
 }
