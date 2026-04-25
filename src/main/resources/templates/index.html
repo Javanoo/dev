@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.thymeleaf.org">
+	<head>
+		<title> matthews offen </title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="/stylesheet.css">
+		<style>
+			body{ 
+				font-family: monospace;
+				display:flex;
+				flex-direction: column;
+				justify-content: center;
+				margin:2% 25%;
+				background-color: rgb(253, 251, 248);
+			}
+			body header {
+				font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				font-size: larger;
+				margin-bottom: 0%;
+			}
+			body header h1 {
+				margin-bottom: 0%;
+			}
+			body header p {
+				font-family: monospace;
+				font-size: large;
+				margin-top: 0%;
+			}
+
+			body nav{
+				display: flex;
+				align-items:center;
+				background-color: rgb(230, 227, 227);
+				padding:0%;
+				margin:0%;
+				width:fit-content;
+				border-radius: 5px;
+				box-shadow: .2px .2px 1px grey;
+			}
+			body nav ul{
+				display: flex;
+				flex-direction: row;
+				list-style-type: none;
+				padding:0%;
+				margin: .4rem .2rem;
+			}
+			body nav ul li{
+				margin:.2rem .1rem;
+			}
+			body nav ul li a {
+				text-decoration: none;
+				padding: .4rem;
+				color: black;
+				border-radius: 3px;
+			}
+			body nav ul li a:hover{
+				background-color: white;
+				font-weight: 800;
+			}
+			body nav ul li a#active{
+				background-color: rgb(255, 255, 255);
+				font-weight:800;
+			}
+
+			body section#projectsSection {
+				display:flex;
+				flex-direction: column;
+			}
+
+			body section#projectsSection section#projects {
+				background-color: rgb(228, 222, 222);
+				border-radius: 20px;
+				padding:10px;
+				font-size: medium;	
+				margin-top: 20px;
+				display: flex;
+				flex-direction: column;
+			}
+
+			body section#projectsSection section#projects h3, section#projects a {
+				background-color: rgb(206, 201, 201);
+				border-radius: 20px;
+				padding:10px;
+				font-size: medium;	
+				margin-top:0px;
+				width:fit-content;
+			}
+			body section#projectsSection section#projects a {
+				text-decoration: none;
+				color: white;
+				background-color: rgb(1, 177, 53);
+				align-self: flex-end;
+
+			}
+
+			body section#homeSection{
+				margin-top: 1rem;
+			}
+			body section#homeSection section#introduction {
+				display: flex;
+				flex-direction:column;
+				justify-content: center;
+			
+			}
+			body section#homeSection section#introduction h3, section#homeSection section#introduction p {
+				width:fit-content;
+				background-color: rgb(228, 222, 222);
+				border-radius: 20px;
+				padding:10px;
+				color: rgb(1, 177, 53);
+				font-size: medium;
+			}
+			body section#homeSection section#introduction p{
+				padding:15px;
+				font-weight: 500;
+				color:rgb(59, 59, 59);
+				margin-top: 1.5px;
+			}
+			body section#homeSection section#introduction hr{
+				width:20%;
+				align-self: flex-start;
+				border-style: solid;
+				border-width: 2px;
+				color:rgb(1, 177, 53);
+				border-radius: 5px;
+			}
+			body section#homeSection section#introduction ul li{
+				margin:.2rem .1rem;
+				padding: .6rem;
+				background-color: rgb(240, 20, 20);
+				color:white;
+				border-radius: 3rem;
+				width:fit-content;
+			}
+			body section#homeSection section#techStack ul{
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				width:70%;
+				list-style-type: none;
+				padding:0%;
+			}
+			body section#homeSection section#techStack ul li{
+				margin:.2rem .1rem;
+				padding: .6rem;
+				background-color: rgb(1, 177, 53);
+				color:white;
+				border-radius: .3rem;
+			}
+
+			footer{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				flex-wrap: wrap;
+				margin-top: 3rem;
+			}
+			footer p {
+				margin:5px 5px;
+				font-size:smaller;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Matthews Offen</h1>
+			<p><small>software developer</small></p>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="/" th:id="${aboutLink}">about</a></l>
+				<li><a href="/projects" th:id="${projectLink}">projects</a></li>
+				<li><a href="mailto:matthewsoffen2@gmail.com">contact</a></li>
+			</ul>
+		</nav>
+		<section id="mainContent" th:switch="${pageMode}">
+			<section id="projectsSection" th:case="'projects'">
+				<section id="projects" th:each="p: ${projects}">
+					<h3 th:text="${p.projectName}"></h3>
+					<small th:text="${p.projectType}"></small>
+					<p th:text="${p.projectDescription}"></p>
+					<a th:href="${p.projectGithubLink}">Github</a>
+				</section>	
+			</section>
+			<section id="homeSection" th:case="*">
+				<section id="introduction">
+					<h3>> who am i</h3>
+					<p> I am matthews, a software developer focused on backend engineering with a 
+						passion of building reliable and well-structured software. while my expertise is in backend 
+						development, i can venture into the full stack territory should a project call for it. From 
+						designing database schemas, to developing application logic and crafting a simple clean user interface,
+						i got it covered.
+					</p>
+				
+					<h3 style="align-self: flex-end;"> what i do <</h3>
+					<p> I build backend systems and APIs using java and the spring framework, backed by spring boot and MySQL for 
+						data persistence. I also work with Php for structured server side logic on small scale apps. My
+						workflow spans tools like Postman for API testing, Draw.io for data modelling, figma for UI/UX development.
+						My goal is to keep writing code thats clean, maintainable and built to last. 
+					</p>
+					<hr>
+				</section>
+			
+				<section id="techStack">
+					<h3>Tech Stack </h3>
+					<ul>
+						<li>Java</li>
+						<li>Spring Framework</li>
+						<li>PHP</li>
+						<li style="background-color: rgb(29, 162, 245);">MySQL</li>
+						<li>REST APIs</li>
+						<li style="background-color: orange;">Postman</li>
+						<li>Github</li>
+						<li>Git</li>
+						<li>Draw.io</li>
+						<li>Figma</li>
+						<li style="background-color:rgb(240, 20, 20);">Eclipse/Vscode/IntelliJ IDEA</li>
+					</ul>
+				</section>
+			</section>
+		</section>
+		<footer>
+			<p style="align-self: center;"> 2026 &copy; matthews offen . </p>
+			<p style="justify-self: flex-end;">software developer . <a href="mailto:matthewsoffen2@gmail.com"style="color: rgb(1, 177, 53); text-decoration: none;"> open to work</a></p>
+		</footer>
+	</body>
+</html>
