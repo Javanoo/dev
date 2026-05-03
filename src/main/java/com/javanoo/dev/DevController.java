@@ -53,23 +53,4 @@ public class DevController {
 		return "index.html";
 	}
 	
-
-	/* 
-	@PostMapping("/collaborate")
-	public String collaborate(
-			@RequestParam(required = false) String emailAddress, 
-			@RequestParam(required = false) String emailSubject,
-			@RequestParam(required = false) String emailMessage) {
-		//only store valid email
-		if(emailAddress != null && emailSubject != null && emailMessage !=null)
-		 if(!(emailAddress.isBlank() || emailSubject.isBlank() || emailMessage.isBlank())){
-		 	 Email email = new Email();
-			 email.setEmailAddress(emailAddress);
-			 email.setEmailSubject(emailSubject);
-			 email.setEmailMessage(emailMessage);
-			 mailingService.storeEmail(email);
-		 }
-		//then call collaborate
-		return collaborate();
-	}*/
 }

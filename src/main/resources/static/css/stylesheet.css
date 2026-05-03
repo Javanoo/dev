@@ -1,0 +1,165 @@
+body{ 
+	font-family: monospace;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	margin:2% 25%;
+	background-color: rgb(253, 251, 248);
+}
+body header {
+	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: x-large;
+	margin-bottom: 4%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+body header h1 {
+	margin-bottom: 0%;
+	font-family: "URW Gothic";
+	font-weight:normal;
+}
+body header p {
+	font-family: "Tlwg Mono";
+	font-size: large;
+	font-weight: bolder;
+	margin-top: 0%;
+	color: orangered;
+	align-self: center;
+}
+
+body nav{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+body nav ul{
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+	align-items: right;
+	list-style-type: none;
+	padding:0%;
+	margin: .4rem .2rem;
+	background-color: rgb(230, 227, 227);
+	padding:1.2%;
+	margin:0%;
+	width:fit-content;
+	border-radius: 5px;
+	box-shadow: .2px .2px 1px grey;
+}
+body nav ul li{
+	margin:.2rem .1rem;
+}
+body nav ul li a {
+	text-decoration: none;
+	padding: .4rem;
+	color: black;
+	border-radius: 3px;
+}
+body nav ul li a:hover{
+	background-color: white;
+	font-weight: 800;
+}
+body nav ul li a#active{
+	background-color: rgb(255, 255, 255);
+	font-weight:800;
+}
+
+body section#projectsSection {
+	display:flex;
+	flex-direction: column;
+}
+
+body section#projectsSection section#projects {
+	background-color: rgb(228, 222, 222);
+	border-radius: 20px;
+	padding:10px;
+	font-size: medium;	
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+body section#projectsSection section#projects h3, section#projects a {
+	background-color: rgb(206, 201, 201);
+	border-radius: 20px;
+	padding:10px;
+	font-size: medium;	
+	margin-top:0px;
+	width:fit-content;
+}
+body section#projectsSection section#projects a {
+	text-decoration: none;
+	color: white;
+	background-color: rgb(1, 177, 53);
+	align-self: flex-end;
+
+}
+
+body section#homeSection{
+	margin-top: 1rem;
+}
+body section#homeSection section#introduction {
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+
+}
+body section#homeSection section#introduction h3, section#homeSection section#introduction p {
+	width:fit-content;
+	background-color: rgb(228, 222, 222);
+	border-radius: 20px;
+	padding:10px;
+	color: rgb(1, 177, 53);
+	font-size: medium;
+}
+body section#homeSection section#introduction p{
+	padding:15px;
+	font-weight: 500;
+	color:rgb(59, 59, 59);
+	margin-top: 1.5px;
+}
+body section#homeSection section#introduction hr{
+	width:20%;
+	align-self: flex-start;
+	border-style: solid;
+	border-width: 2px;
+	color:rgb(1, 177, 53);
+	border-radius: 5px;
+}
+body section#homeSection section#introduction ul li{
+	margin:.2rem .1rem;
+	padding: .6rem;
+	background-color: rgb(240, 20, 20);
+	color:white;
+	border-radius: 3rem;
+	width:fit-content;
+}
+body section#homeSection section#techStack ul{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width:70%;
+	list-style-type: none;
+	padding:0%;
+}
+body section#homeSection section#techStack ul li{
+	margin:.2rem .1rem;
+	padding: .6rem;
+	background-color: rgb(1, 177, 53);
+	color:white;
+	border-radius: .3rem;
+}
+
+footer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 3rem;
+}
+footer p {
+	margin:5px 5px;
+	font-size:smaller;
+}
