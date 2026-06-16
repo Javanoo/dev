@@ -3,7 +3,7 @@ body{
 	display:flex;
 	flex-direction: column;
 	justify-content: center;
-	margin:2% 25%;
+	margin:2% 25rem;
 	background-color: rgb(253, 251, 248);
 }
 body header {
